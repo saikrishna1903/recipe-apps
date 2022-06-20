@@ -79,8 +79,25 @@ public class Receipes {
 				+ "," + SuitableFor + "," + Ingredients + ","
 				+ CookingInstructions;
 		List<String> list=new ArrayList<String>(Arrays.asList(s.split(",")));
-		System.out.println(list.get(5));
 		return list;
 	}
 
+	public List<String> getvaluess(String h){
+		System.out.println(h);
+		ArrayList<String> l=new ArrayList<String>();
+		String d="";
+		for(int i=0;i<h.length();i++) {
+			
+			if(h.charAt(i)=='.') {
+				l.add(d);
+				d="";
+				
+			}else {
+				d=d+h.charAt(i);
+			}
+			
+
+		}System.out.println(l);
+		return l;
+	}
 }

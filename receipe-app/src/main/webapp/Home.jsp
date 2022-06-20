@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>   
+<%@ page import="java.util.*" %>
+<%! int fontSize; %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +30,25 @@ th:nth-child(even),td:nth-child(even) {
 
 
 <tr style="height:70px">
+<c:set var="count" value="0" scope="page" />
 <c:forEach items="${item.getList()}" var="valuee">
-
-<th>${valuee}</th>
+<c:set var="count" value="${count + 1}" scope="page"/>
+<c:if test = "${count!=6 }">
+<th>${valuee}</th></c:if>
+<c:if test = "${count==6 }">
+ <th>
+               <ol>
+         <c:forEach items="${item.getvaluess(valuee)}" var="ts">
+         <li>${ts}</li>
+         </c:forEach>
+         
+         </ol></th>
+         </c:if>
+     
 </c:forEach>
+
 <th><a href="/delete/${R.get(0).getId()}">Delete</a></th>
-<th><a href="/s">Update</a></th>
+<th><a href="/se/${R.get(0).getId()}">Update</a></th>
 </tr>
 </c:forEach>
 </table>

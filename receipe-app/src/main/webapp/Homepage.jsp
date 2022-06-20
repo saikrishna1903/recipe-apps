@@ -13,7 +13,7 @@
 <tr><th>Date and time of its Creation</th><th><input type=text name="DateTime"></th></tr>
 <tr><th>Type of Dish</th><th><input type=text name="TypeOfDish"></th></tr>
 <tr><th>Serves For </th><th><input type=text name="SuitableFor"></th></tr>
-<tr><th>Ingredients</th><th><input type=text name="Ingredients"></th></tr>
+<tr><th>Ingredients</th> <th><input type=text name="Ingredients"></th></tr>
 <tr><th>CookingInstructions</th><th><input type=text name="CookingInstructions"></th></tr>
 <tr><th><input type=submit></th></tr>
 </table>

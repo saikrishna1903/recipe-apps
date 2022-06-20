@@ -11,7 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.model.Receipes;
 import com.example.demo.service.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ReceipesController {
@@ -48,23 +51,26 @@ public class ReceipesController {
 	
 	@RequestMapping("/delete")
 	public void deletebyid(int id) {
-		System.out.println("hgsj");
 		ser.delete(id);
 		
 	}
-	@RequestMapping("/se")
-	public String updatee() {
-		return "update";
+	@RequestMapping("/se/{id}")
+	public ModelAndView updatee(@PathVariable int id) {
+		Receipes r=ser.findById(id);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("r",r);
+		mv.setViewName("update");
+		return mv;
+		
 	}
 	@RequestMapping("/update")
-	public void updatevalue(Receipes r) {
+	public String updatevalue(Receipes r) {
 		ser.update(r);
-		
+		return "redirect:/";
 	}
 	@RequestMapping("/delete/{id}")
 	public String deleteById(@PathVariable int id) {
 
-         System.out.println("tess");
         
 		 ser.delete(id);
 		 return "redirect:/";
