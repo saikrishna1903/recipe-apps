@@ -29,10 +29,11 @@ th:nth-child(even),td:nth-child(even) {
 
 <tr style="height:70px">
 <c:forEach items="${item.getList()}" var="valuee">
+
 <th>${valuee}</th>
 </c:forEach>
-<th><input type="submit" value="Delete" onclick="location.href='/delete/${item.getId()}'"></th>
-<th><input type="submit" value="Update"></th>
+<th><a href="/delete/${R.get(0).getId()}">Delete</a></th>
+<th><a href="/s">Update</a></th>
 </tr>
 </c:forEach>
 </table>

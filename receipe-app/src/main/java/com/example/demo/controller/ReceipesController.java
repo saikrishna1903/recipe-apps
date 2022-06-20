@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Receipes;
@@ -47,6 +48,7 @@ public class ReceipesController {
 	
 	@RequestMapping("/delete")
 	public void deletebyid(int id) {
+		System.out.println("hgsj");
 		ser.delete(id);
 		
 	}
@@ -60,13 +62,14 @@ public class ReceipesController {
 		
 	}
 	@RequestMapping("/delete/{id}")
-	public void deleteById(@PathVariable("id") int id) {
-		
-		try {
-		ser.delete(id);
-		}
-		catch(Exception e){
-		}
+	public String deleteById(@PathVariable int id) {
+
+         System.out.println("tess");
+        
+		 ser.delete(id);
+		 return "redirect:/";
+
 	}
+	
 	
 }
