@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Receipes {
@@ -17,7 +21,10 @@ public class Receipes {
 	private String DateTime;
 	private String TypeOfDish;
 	private int SuitableFor;
-	private String Ingredients;
+
+//	@OneToOne(cascade=CascadeType.ALL,targetEntity=ingredients.class)
+//	@JoinColumn(name="ing_id")
+	String Ingredients;
 	private String CookingInstructions;
 	public int getId() {
 		return id;
@@ -60,13 +67,12 @@ public class Receipes {
 				+ ", SuitableFor=" + SuitableFor + ", Ingredients=" + Ingredients + ", CookingInstructions="
 				+ CookingInstructions + "]";
 		List<String> list=new ArrayList<String>(Arrays.asList(s.split(",")));
-		System.out.println("fsd");
-		System.out.println(list);
+
 		return "Receipes [id=" + id + ", name=" + name + ", DateTime=" + DateTime + ", TypeOfDish=" + TypeOfDish
 				+ ", SuitableFor=" + SuitableFor + ", Ingredients=" + Ingredients + ", CookingInstructions="
 				+ CookingInstructions + "]";
-		
-		 
+
+
 	}
 	public String getCookingInstructions() {
 		return CookingInstructions;
@@ -83,21 +89,21 @@ public class Receipes {
 	}
 
 	public List<String> getvaluess(String h){
-		System.out.println(h);
+
 		ArrayList<String> l=new ArrayList<String>();
 		String d="";
 		for(int i=0;i<h.length();i++) {
-			
+
 			if(h.charAt(i)=='.') {
 				l.add(d);
 				d="";
-				
+
 			}else {
 				d=d+h.charAt(i);
 			}
-			
 
-		}System.out.println(l);
+
+		}
 		return l;
 	}
 }

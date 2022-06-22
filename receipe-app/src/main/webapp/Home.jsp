@@ -24,6 +24,7 @@ th:nth-child(even),td:nth-child(even) {
 </style>
 </head>
 <body>
+<h1>This is Recipe Page</h1>
 <table style="width:100%">
 <tr style="height:70px"><th>Id</th><th>Name</th><th>Date and time of its Creation</th><th>Type of Dish</th><th>Serves For </th><th>Ingredients</th><th>CookingInstructions</th></tr>
 <c:forEach items="${R}" var="item">
@@ -47,11 +48,12 @@ th:nth-child(even),td:nth-child(even) {
      
 </c:forEach>
 
-<th><a href="/delete/${R.get(0).getId()}">Delete</a></th>
-<th><a href="/se/${R.get(0).getId()}">Update</a></th>
+<th><a href="/delete/${item.getId()}">Delete</a></th>
+<th><a href="/se/${item.getId()}">Update</a></th>
 </tr>
 </c:forEach>
 </table>
+
 <h3><a href="/">Home page</a> | <a href="/add">Add Recipe</a> | <a href="/s">Delete Recipe</a> | <a href="/se">Update Recipe</a></h3>
   
 </body>

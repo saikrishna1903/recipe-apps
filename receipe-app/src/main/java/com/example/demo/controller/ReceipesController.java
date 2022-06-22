@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,17 +21,20 @@ import java.util.Optional;
 public class ReceipesController {
 	@Autowired
 	service ser;
+	@Autowired
+	private ingrediantsController ic;
 	
-	
-	
+//	Logger logger = LoggerFactory.getLogger(ReceipesController.class);
+	 
 	@RequestMapping("/add")
 	public String addd(Receipes r) {
 		
 		if(r.getName()==null) {
 			
 		}else {
-			
+			ic.ingredientsList(r.getIngredients());
 			ser.save(r);
+			
 		}
 		
 		return "Homepage";

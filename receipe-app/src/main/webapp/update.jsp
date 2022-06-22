@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${r}
-${item.getList()}
+
 <form action="/update">
 
 <table>
